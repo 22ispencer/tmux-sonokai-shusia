@@ -35,15 +35,15 @@ main()
   show_empty_plugins=$(get_tmux_option "@monokai-show-empty-plugins" true)
 
   # Monokai Pro Color Pallette
-  white='#fcfcfa'
-  black='#2d2a2e'
-  dark_gray='#403e41'
-  gray='#727072'
-  red='#ff6188'
-  green='#a9dc76'
-  yellow='#ffd866'
-  blue='#78dce8'
-  magenta='#fc9867'
+  white='#e3e1e4'
+  black='#1a181a'
+  dark_gray='#211f21'
+  gray='#605d68'
+  red='#f85e84'
+  green='#9ecd6f'
+  yellow='#e5c463'
+  blue='#7accd7'
+  orange='#ef9062'
   cyan='#ab9df2'
 
   # Handle left icon configuration
@@ -129,10 +129,10 @@ main()
 
   # Status left
   if $show_powerline; then
-    tmux set-option -g status-left "#[fg=${green},bg=${black}]#{?client_prefix,#[fg=${magenta}],}#[bg=${green},fg=${black},bold]#{?client_prefix,#[bg=${magenta}],} ${left_icon} #[fg=${green},bg=${dark_gray}]#{?client_prefix,#[fg=${magenta}],}${left_sep}"
+    tmux set-option -g status-left "#[fg=${green},bg=${black}]#{?client_prefix,#[fg=${orange}],}#[bg=${green},fg=${black},bold]#{?client_prefix,#[bg=${orange}],} ${left_icon} #[fg=${green},bg=${dark_gray}]#{?client_prefix,#[fg=${orange}],}${left_sep}"
     powerbg=${dark_gray}
   else
-    tmux set-option -g status-left "#[bg=${green},fg=${black},bold]#{?client_prefix,#[bg=${magenta}],} ${left_icon} "
+    tmux set-option -g status-left "#[bg=${green},fg=${black},bold]#{?client_prefix,#[bg=${orange}],} ${left_icon} "
   fi
 
   # Status right
@@ -188,7 +188,7 @@ main()
       script="#($current_dir/gpu_power.sh)"
 
     elif [ $plugin = "cpu-usage" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@monokai-cpu-usage-colors" "magenta black")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@monokai-cpu-usage-colors" "orange black")
       script="#($current_dir/cpu_info.sh)"
 
     elif [ $plugin = "ram-usage" ]; then
@@ -245,7 +245,7 @@ main()
       script="#($current_dir/continuum.sh)"
 
     elif [ $plugin = "weather" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@monokai-weather-colors" "magenta black")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@monokai-weather-colors" "orange black")
       script="#($current_dir/weather_wrapper.sh $show_fahrenheit $show_location '$fixed_location')"
 
     elif [ $plugin = "time" ]; then
@@ -293,7 +293,7 @@ main()
   done
 
   if $show_powerline; then
-    tmux set-option -ga status-right "#[fg=${green},bg=${magenta}]${right_sep}#[bg=${green},fg=${black},bold] #h #[bg=${black},fg=${green}]"
+    tmux set-option -ga status-right "#[fg=${green},bg=${orange}]${right_sep}#[bg=${green},fg=${black},bold] #h #[bg=${black},fg=${green}]"
   else
     tmux set-option -ga status-right "#[fg=${green},bg=${blue}]${right_sep}#[bg=${green},fg=${black},bold] #h "
   fi
