@@ -34,7 +34,7 @@ main()
   IFS=' ' read -r -a plugins <<< $(get_tmux_option "@sonokai-plugins" "network-ping cpu-usage ram-usage")
   show_empty_plugins=$(get_tmux_option "@sonokai-show-empty-plugins" true)
 
-  # sonokai Pro Color Pallette
+  # Sonokai Shusia Color Pallette
   white='#e3e1e4'
   black='#2d2a2e'
   dark_gray='#37343a'
@@ -293,7 +293,7 @@ main()
   done
 
   if $show_powerline; then
-    tmux set-option -ga status-right "#[fg=${green},bg=${orange}]${right_sep}#[bg=${green},fg=${black},bold] #h #[bg=${black},fg=${green}]"
+    tmux set-option -ga status-right "#[fg=${dark_gray},bg=${yellow}]${right_sep}#[fg=${green},bg=${dark_gray}]${right_sep}#[bg=${green},fg=${black},bold] #h #[bg=${black},fg=${green}]"
   else
     tmux set-option -ga status-right "#[fg=${green},bg=${blue}]${right_sep}#[bg=${green},fg=${black},bold] #h "
   fi
