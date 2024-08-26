@@ -8,15 +8,15 @@ A customized version of the [Dracula theme](https://github.com/dracula/tmux) for
 
 Using [tpm](https://github.com/tmux-plugins/tpm), add the following to your `.tmux.conf`:
 
-```
-set -g @plugin 'maxpetretta/tmux-monokai-pro'
+```tmux
+set -g @plugin '22ispencer/tmux-sonokai-shusia'
 ```
 
 ## Configuration
 
 Configuration and options can be found at [draculatheme.com/tmux](https://draculatheme.com/tmux).
 
-**NOTE**: Replace all mentions of `@dracula` with `@monokai`
+**NOTE**: Replace all mentions of `@dracula` with `@sonokai`
 
 ## Features
 
